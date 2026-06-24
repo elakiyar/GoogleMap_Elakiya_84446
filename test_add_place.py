@@ -2,7 +2,7 @@ from playwright.sync_api import APIRequestContext
 import pytest
 import json
 
-filepath = "C:\\June2026_batch2_playwright_APITesting\\GoogleMap\\global_gm.json"
+filepath = "C:\\June2026_batch2_playwright_APITesting\\24thJune2026\\24thJune2026_GoogleMap\\global_gm.json"
 
 @pytest.mark.order(1)
 @pytest.mark.dependency(scope="session", name="add_place")
@@ -24,7 +24,7 @@ def test_add_place(before_each_test: APIRequestContext):
         "language": "French-IN"
     }
 
-    response = before_each_test.post("/maps/api/place/add/json", data=payload)
+    response = before_each_test.post("https://rahulshettyacademy.com/maps/api/place/add/json", data=payload)
 
     assert response.status == 200
     print(json.dumps(response.json(), indent=4))

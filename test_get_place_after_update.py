@@ -4,9 +4,9 @@ import json
 
 filepath = "C:\\June2026_batch2_playwright_APITesting\\24thJune2026\\24thJune2026_GoogleMap\\global_gm.json"
 
-@pytest.mark.order(2)
-@pytest.mark.dependency(scope="session", depends=["add_place"])
-def test_get_place(before_each_test: APIRequestContext):
+@pytest.mark.order(4)
+@pytest.mark.dependency(scope="session", depends=["update_place"])
+def test_get_place_after_update(before_each_test: APIRequestContext):
     with open(filepath, "r") as file:
         data = json.load(file)
 

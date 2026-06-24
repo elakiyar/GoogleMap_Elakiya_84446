@@ -2,7 +2,7 @@ from playwright.sync_api import APIRequestContext
 import pytest
 import json
 
-filepath = "C:\\June2026_batch2_playwright_APITesting\\GoogleMap\\global_gm.json"
+filepath = "C:\\June2026_batch2_playwright_APITesting\\24thJune2026\\24thJune2026_GoogleMap\\global_gm.json"
 
 @pytest.mark.order(3)
 @pytest.mark.dependency(scope="session", depends=["add_place"], name="update_place")
@@ -19,7 +19,7 @@ def test_update_place(before_each_test: APIRequestContext):
         "key": key
     }
 
-    response = before_each_test.put("/maps/api/place/update/json", params={"key": key}, data=payload)
+    response = before_each_test.put("https://rahulshettyacademy.com/maps/api/place/update/json", params={"key": key}, data=payload)
 
     assert response.status == 200
     print(json.dumps(response.json(), indent=4))
